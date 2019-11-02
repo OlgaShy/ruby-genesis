@@ -1,5 +1,6 @@
 require 'capybara/rspec'
 require 'require_all'
+require 'securerandom'
 require 'selenium-webdriver'
 require 'site_prism'
 
@@ -112,4 +113,5 @@ RSpec.configure do |config|
   Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
   end
+
 end
