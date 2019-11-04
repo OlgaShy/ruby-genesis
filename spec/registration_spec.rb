@@ -8,6 +8,11 @@ feature "the registration process", js: true  do
     expect(page).to have_content 'Redmine'
 
     sleep 2
+
+    random_value = SecureRandom.hex(8).to_s
+    new_user = 'test_user_' + random_value
+
+=begin
     @registration_page.register_button.click
 
     expect(current_url).to include '/account/register'
@@ -22,6 +27,9 @@ feature "the registration process", js: true  do
     @registration_page.email_field.set 'JS' + random_value + '@g.com'
     #@register_page.language_dropdown.select 'English (British)' from: 'Language'
     @registration_page.submit_button.click
+=end
+
+    register_user new_user
 
     expect(page). to have_content 'Your account has been activated. You can now log in'
 
