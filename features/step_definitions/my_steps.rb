@@ -39,3 +39,18 @@ Then(/^I became logged in user$/) do
   expect(page). to have_content 'Logged in as user'
   sleep 5
 end
+
+end
+
+When(/^I send correct data for the new user registration$/) do
+  random_value = SecureRandom.hex(8).to_s
+  new_user = 'test_user_' + random_value
+
+  create_user_via_api(new_user)
+end
+
+
+Then(/^I became a new tegistered via API user$/) do
+  >> response.code
+  => 201
+end
