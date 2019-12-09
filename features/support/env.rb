@@ -1,4 +1,5 @@
 require 'capybara/cucumber'
+require 'json'
 require 'require_all'
 require 'rest-client'
 require 'securerandom'
